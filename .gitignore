@@ -1,0 +1,29 @@
+#.gitignore for cheapest-hotel-bot
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtualenv
+venv/
+.venv/
+env/
+ENV/
+
+# Environment files
+.env
+
+# IDE / macOS
+.DS_Store
+.vscode/
+
+# Byte-compiled / distribution
+build/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Logs
+*.log
