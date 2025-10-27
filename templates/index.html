@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cheapest Hotel Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body{font-family: system-ui, sans-serif; margin:0; background:#0b1020; color:#e7ebff}
+      .container{max-width:800px;margin:0 auto;padding:24px}
+      .card{background:#111735;border:1px solid #1e2650;border-radius:14px;padding:16px;margin-top:16px}
+      .row{display:flex;gap:8px}
+      input,button{border-radius:10px;border:1px solid #38406b;background:#0e1430;color:#e7ebff;padding:12px}
+      button{cursor:pointer}
+      .msg{white-space:pre-wrap;margin:8px 0}
+      .hotel{border-top:1px solid #1e2650;margin-top:8px;padding-top:8px}
+      a{color:#e6e8ed}
+      .hint{opacity:.7;font-size:.9rem}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cheapest Hotel Bot</h1>
+      <div class="card">
+        <div class="row">
+          <input id="msg" placeholder='Try: "cheap place near 10001 next weekend within 8 miles for 2 adults"' style="flex:1" />
+          <button onclick="send()">Send</button>
+        </div>
+        <div class="hint">Ask in plain English. I’ll parse ZIP/city, radius, dates, and guests.</div>
+        <div id="out" class="msg"></div>
+        <div id="hotels"></div>
+      </div>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
