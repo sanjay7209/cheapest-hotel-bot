@@ -73,13 +73,13 @@ jobs:
       - name: Update kustomize image tag
         run: |
           python - <<'PY'
-import os, re, pathlib
-path = pathlib.Path('deploy/overlays/prod/kustomization.yaml')
-text = path.read_text()
-text = re.sub(r"name:\s.*", f"name: {os.environ['FULL_IMAGE_NAME']}", text, count=1)
-text = re.sub(r"newTag:\s.*", f"newTag: {os.environ['IMAGE_TAG']}", text, count=1)
-path.write_text(text)
-PY
+          import os, re, pathlib
+          path = pathlib.Path('deploy/overlays/prod/kustomization.yaml')
+          text = path.read_text()
+          text = re.sub(r"name:\s.*", f"name: {os.environ['FULL_IMAGE_NAME']}", text, count=1)
+          text = re.sub(r"newTag:\s.*", f"newTag: {os.environ['IMAGE_TAG']}", text, count=1)
+          path.write_text(text)
+          PY
 
       - name: Commit and push manifest changes
         run: |
