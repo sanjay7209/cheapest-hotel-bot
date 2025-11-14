@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cheapest-hotel-bot
+  labels:
+    app: cheapest-hotel-bot
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cheapest-hotel-bot
+  template:
+    metadata:
+      labels:
+        app: cheapest-hotel-bot
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/your-org/cheapest-hotel-bot:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: FLASK_ENV
+              value: production
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 30
+            periodSeconds: 30
