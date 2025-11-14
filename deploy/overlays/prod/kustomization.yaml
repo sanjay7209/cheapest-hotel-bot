@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: cheapest-hotel-prod
+resources:
+  - ../../base
+images:
+  - name: ghcr.io/your-org/cheapest-hotel-bot
+    newTag: latest
+configMapGenerator:
+  - name: cheapest-hotel-config
+    literals:
+      - FLASK_ENV=production
